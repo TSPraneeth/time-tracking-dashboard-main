@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root
+{
+--Blue: hsl(246, 80%, 60%);
+--work: hsl(15, 100%, 70%);
+--play: hsl(195, 74%, 62%);
+--study: hsl(348, 100%, 68%);
+--exercise: hsl(145, 58%, 55%);
+--social: hsl(264, 64%, 52%);
+--selfcare: hsl(43, 84%, 65%);
+--Verydarkblue: hsl(226, 43%, 10%);
+--Darkblue: hsl(235, 46%, 20%);
+--Desaturatedblue: hsl(235, 45%, 61%);
+--PaleBlue: hsl(236, 100%, 87%);
+}
+
+*
+{
+    margin: 0;
+}
+
+body
+{
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Verydarkblue);
+    color: white;
+}
+
+.grid_container
+{
+    display: grid;
+    padding: 15px 15px;
+    grid-row-gap: 20px;
+}
+
+.profile_1
+{
+    background-color: var(--Blue);
+    display: flex;
+    align-items: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+.profile_1>img
+{
+    height: 50px;
+    width: 50px;
+}
+
+.details_main
+{
+    margin-left: 20px;
+}
+
+.profile_2
+{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 20px;
+    background-color: var(--Darkblue);
+    border-radius: 10px;
+}
+
+.for_bg
+{
+    
+    border-radius: 10px 10px 0 0;
+}
+
+.work
+{
+    background: url(./images/icon-work.svg);
+    background-repeat: no-repeat;
+    background-color: var(--work);
+    background-position-x: 90%;
+    padding: 40px 0 0 0;
+    background-size: 20% 35%;
+}
+
+.play
+{
+    background: url(./images/icon-play.svg);
+    background-repeat: no-repeat;
+    background-color: var(--play);
+    background-position-x: 90%;
+    padding: 40px 0 0 0;
+    background-size: 20% 35%;
+}
+
+.details
+{
+    background-color: var(--Darkblue);
+    padding: 20px 20px 15px 20px;
+    border-radius: 10px 10px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.3fr 1fr;
+    grid-row-gap: 10px;
+}
+
+.heading
+{
+    display: inline-block;
+}
+
+.fas
+{
+    cursor: pointer;
+    position: relative;
+    align-self: right;
+}
+
+.dropdown
+{
+    position: absolute;
+    right: 43px;
+    display: none;
+    background-color: var(--Darkblue);
+    box-shadow: 0px 0px 10px 3px var(--work);
+    outline: none;
+    padding: 15px;
+}
+
+.dropdown>a
+{
+    display: block;
+}
+
+a
+{
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown_content, .previous
+{
+    text-align: right;
+}
+
+.current
+{
+    font-size: 2.2rem;
+}
+
+.previous
+{
+    font-size: 0.8rem;
+    align-self: center;
+}
+
+.hidden
+{
+    display: none;
+}
