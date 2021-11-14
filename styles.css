@@ -18,18 +18,16 @@
 *
 {
     margin: 0;
+    box-sizing: border-box;
 }
 
 body
 {
     font-family: 'Rubik', sans-serif;
     font-size: 18px;
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
     background-color: var(--Verydarkblue);
     color: white;
+    font-size: 16px;
 }
 
 .grid_container
@@ -37,6 +35,22 @@ body
     display: grid;
     padding: 15px 15px;
     grid-row-gap: 20px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "profile_card"
+        "work"
+        "play"
+        "study"
+        "exercise"
+        "social"
+        "self_care";
+}
+
+.profile_card
+{
+    grid-area: profile_card;
+    background-color: var(--Darkblue);
+    border-radius: 10px;
 }
 
 .profile_1
@@ -52,6 +66,8 @@ body
 {
     height: 50px;
     width: 50px;
+    border: 1px solid white;
+    border-radius: 30px;
 }
 
 .details_main
@@ -64,15 +80,19 @@ body
     display: flex;
     justify-content: space-around;
     padding: 20px 20px;
-    background-color: var(--Darkblue);
-    border-radius: 10px;
+    
 }
 
 .for_bg
 {
-    
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
 }
+
+.heading
+{
+    font-size: 1.125rem;
+}
+
 
 .work
 {
@@ -82,6 +102,7 @@ body
     background-position-x: 90%;
     padding: 40px 0 0 0;
     background-size: 20% 35%;
+    grid-area: work;
 }
 
 .play
@@ -92,17 +113,91 @@ body
     background-position-x: 90%;
     padding: 40px 0 0 0;
     background-size: 20% 35%;
+    grid-area: play;
 }
 
-.details
+.study
+{
+    background: url(./images/icon-study.svg);
+    background-repeat: no-repeat;
+    background-color: var(--study);
+    background-position-x: 90%;
+    padding: 40px 0 0 0;
+    background-size: 20% 35%;
+    grid-area: study;
+}
+
+.exercise
+{
+    background: url(./images/icon-exercise.svg);
+    background-repeat: no-repeat;
+    background-color: var(--exercise);
+    background-position-x: 90%;
+    padding: 40px 0 0 0;
+    background-size: 20% 35%;
+    grid-area: exercise;
+}
+
+.social
+{
+    background: url(./images/icon-social.svg);
+    background-repeat: no-repeat;
+    background-color: var(--social);
+    background-position-x: 90%;
+    padding: 40px 0 0 0;
+    background-size: 20% 35%;
+    grid-area: social;
+}
+
+.self_care
+{
+    background: url(./images/icon-self-care.svg);
+    background-repeat: no-repeat;
+    background-color: var(--selfcare);
+    background-position-x: 90%;
+    padding: 40px 0 0 0;
+    background-size: 20% 35%;
+    grid-area: self_care;
+}
+
+.details_1, .details_2
 {
     background-color: var(--Darkblue);
-    padding: 20px 20px 15px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.details_1
+{
+    padding: 20px 20px 0 20px;
     border-radius: 10px 10px 0 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.3fr 1fr;
-    grid-row-gap: 10px;
+}
+
+.details_2
+{
+    padding: 20px 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+.details:hover
+{
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+ .profile_2>a
+{
+    color: var(--Desaturatedblue);
+}
+
+.report,.fas,.previous
+{
+    color: var(--PaleBlue);
+}
+
+.daily_all:focus,.weekly_all:focus,.monthly_all:focus,.fas:hover
+{
+    color: white;
 }
 
 .heading
@@ -120,7 +215,7 @@ body
 .dropdown
 {
     position: absolute;
-    right: 43px;
+    right: 10px;
     display: none;
     background-color: var(--Darkblue);
     box-shadow: 0px 0px 10px 3px var(--work);
@@ -137,6 +232,11 @@ a
 {
     text-decoration: none;
     color: white;
+}
+
+.dropdown_content
+{
+    position: relative;
 }
 
 .dropdown_content, .previous
@@ -158,4 +258,72 @@ a
 .hidden
 {
     display: none;
+}
+
+@media screen and (min-width:768px) {
+
+    body
+    {
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+    }
+    .grid_container
+    {
+        grid-template-rows: repeat(2,1fr);
+        grid-template-columns: repeat(4,0.65fr);
+        grid-template-areas: 
+            "profile_card work play study"
+            "profile_card exercise social self_care";
+            grid-gap: 20px;
+    }
+
+    .profile_1
+    {
+        flex-direction: column;
+        align-items: unset;
+    }
+
+    .profile_1>img
+    {
+        margin-left: 10px;
+        height: 60px;
+        width: 60px;
+    }
+
+    .details_main
+    {
+        margin: 20px 0 20px 10px;
+    }
+
+    .report
+    {
+        font-size: 0.8rem;
+    }
+
+    .name
+    {
+        font-size: 2.3rem;
+        padding-right: 20px;
+    }
+
+    .profile_2
+    {
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 10px;
+    }
+
+    .details_2
+    {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .previous
+    {
+        align-self: flex-start;
+    }
+
+    
 }
